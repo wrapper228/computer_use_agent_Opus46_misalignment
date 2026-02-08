@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | default: site.description }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true">
+      <span class="orb orb-one"></span>
+      <span class="orb orb-two"></span>
+      <span class="orb orb-three"></span>
+      <span class="grid-overlay"></span>
+    </div>
+
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Исследование поведения LLM-агента</p>
+        <h1>{{ page.title | default: site.title }}</h1>
+        <p class="lede">{{ site.description }}</p>
+        <div class="meta-strip">
+          <span>Обновлено: {{ page.date | default: site.time | date: '%d %B %Y' }}</span>
+          <span>GitHub Pages · Custom Layout</span>
+        </div>
+      </header>
+
+      <main class="content-shell">
+        <article class="prose">
+          {{ content }}
+        </article>
+      </main>
+
+      <footer class="page-footer">
+        <p>Создано в рамках проекта <strong>Opus 4.6 Agent Misalignment</strong>.</p>
+        <p class="small">Дизайн: кастомная тема GitHub Pages без сторонних фреймворков.</p>
+      </footer>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      document.addEventListener('scroll', () => {
+        const max = document.body.scrollHeight - window.innerHeight;
+        const ratio = max > 0 ? window.scrollY / max : 0;
+        root.style.setProperty('--scroll-progress', ratio.toFixed(3));
+      });
+    </script>
+  </body>
+</html>
