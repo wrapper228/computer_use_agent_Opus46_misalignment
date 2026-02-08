@@ -14,25 +14,62 @@
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
   </head>
   <body>
-    <div class="aurora" aria-hidden="true">
-      <span class="orb orb-one"></span>
-      <span class="orb orb-two"></span>
-      <span class="orb orb-three"></span>
-      <span class="grid-overlay"></span>
-    </div>
-
     <div class="page-shell">
       <header class="hero">
-        <p class="eyebrow">Исследование поведения LLM-агента</p>
-        <h1>{{ page.title | default: site.title }}</h1>
-        <p class="lede">{{ site.description }}</p>
-        <div class="meta-strip">
-          <span>Обновлено: {{ page.date | default: site.time | date: '%d %B %Y' }}</span>
-          <span>GitHub Pages · Custom Layout</span>
+        <div class="hero-top">
+          <div class="brand-mark">
+            <span class="brand-logo">Opus Field Lab</span>
+            <span class="brand-tagline">Anthropic computer-use study</span>
+          </div>
+          <div class="hero-actions">
+            <button class="icon-button" type="button" aria-label="Поиск по заметкам">
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path
+                  d="M11 4a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0-2C6.582 2 3 5.582 3 10s3.582 8 8 8a7.96 7.96 0 0 0 4.9-1.7l4.4 4.4 1.4-1.4-4.4-4.4A7.96 7.96 0 0 0 19 10c0-4.418-3.582-8-8-8z"
+                />
+              </svg>
+            </button>
+            <button class="icon-button" type="button" aria-label="Открыть меню">
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-main">
+          <p class="hero-kicker">Полевая заметка · {{ page.date | default: site.time | date: '%d %B %Y' }}</p>
+          <h1>{{ page.title | default: site.title }}</h1>
+          <p class="hero-lede">{{ site.description }}</p>
+        </div>
+
+        <div class="hero-cta-row">
+          <a class="cta-button" href="#report">Перейти к отчёту</a>
+          <div class="meta-strip hero-meta">
+            <span>Обновлено: {{ page.date | default: site.time | date: '%d %B %Y' }}</span>
+            <span>GitHub Pages · Custom Layout</span>
+          </div>
+        </div>
+
+        <div class="hero-highlight">
+          <div>
+            <p class="highlight-kicker">Новое наблюдение</p>
+            <p class="highlight-title">Opus 4.6 теряет здравый смысл в GUI-режиме</p>
+          </div>
+          <a class="highlight-link" href="#report">К основным выводам →</a>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-media" aria-hidden="true"></div>
+          <div>
+            <p class="card-label">Спецразбор</p>
+            <p class="card-title">Почему модель игнорирует Cursor workflow</p>
+            <p class="card-meta">См. раздел «Модель торгуется с системным промптом»</p>
+          </div>
         </div>
       </header>
 
-      <main class="content-shell">
+      <main id="report" class="content-shell">
         <article class="prose">
           {{ content }}
         </article>
